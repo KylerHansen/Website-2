@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Assignment 5</title>
+<style>
+
+form{
+
+width:30%;
+display: block;
+border : 10px solid black;
+padding:20px;
+position:absolute;
+left:200px;
+top:50px;
+background-color:white;
+
+}
+
+
+body{
+
+background-color:purple;
+
+}
+
+
+.backtohome button{
+
+border:3px solid black;
+padding:10px;
+background-color:white;
+
+}
+.backtohome a{
+
+text-decoration:none;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<form action = "assignment6.php" method="post">
+<fieldset>
+<legend>Card Ownership</legend>
+<input type="radio" name="cc_owner" value="personal"> Personal 
+<input type = "radio" name="cc_owner" value="business"> Business<br>
+</fieldset>
+<br>
+Credit card type: 
+<select name="cc_type" required>
+<option value="visa">Visa</option>
+<option value="mc">MasterCard</option>
+<option value="disc">Discover</option>
+<option value="ae">American Express</option>
+<option value="co">Capital One</option>
+</select> 
+<br><br>
+
+Card  number: <input type="text" name= "cc_no" required> 
+<br><br>
+
+Expiration date: 
+<select name="exp_month" required>
+
+<option value="Jan">January</option>
+<option value="Feb">Feburary</option>
+<option value="Mar">March</option>
+<option value="Apr">April</option>
+<option value="May">May</option>
+<option value="Jun">June</option>
+<option value="Jul">July</option>
+<option value="Aug">August</option>
+<option value="Sep">Septermber</option>
+<option value="Oct">October</option>
+<option value="Nov">November</option>
+<option value="Dec">December</option>
+
+</select>
+
+<select name="exp_year" required>
+<option value="19">2019</option>
+<option value="20">2020</option>
+<option>2021</option>
+<option>2022</option>
+<option>2023</option>
+<option>2024</option>
+<option>2025</option>
+<option>2026</option>
+<option>2027</option>
+<option>2028</option>
+<option>2029</option>
+<option>2030</option>
+</select>
+<br><br>
+
+<input type="checkbox" name="auth" checked required>I confirm that this purchase has been authorized.
+<br><br>
+
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+
+</form>
+
+<div class="backtohome">
+<button><a href="index.html">Return to Homepage</a></button>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>

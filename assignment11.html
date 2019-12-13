@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 11</title>
+<style>
+body{
+background-color:purple;
+font-family:Arial;
+font-weight:bold;
+font-size:20px;
+}
+
+.backtohome button{
+
+border:3px solid black;
+padding:10px;
+background-color:white;
+
+}
+.backtohome a{
+
+text-decoration:none;
+font-weight:bold;
+
+}
+
+.display{ 
+background-color:white;
+width:500px;
+height:auto;
+position:absolute;
+top:220px;
+} 
+
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+
+$(document).ready(function(){
+
+var answer = Math.floor((Math.random()*100)+1);
+
+alert("The Random Number is: " + answer);
+
+var count=0;
+
+
+	$("#submit").click(function(){
+		
+		
+		var guess = $("#input").val();
+	
+		var pattern = /^[1-9][0-9]?$|^100$/g
+
+
+		if(guess.match(pattern)){
+		
+		count++;
+		
+			if (guess == answer){
+			
+				$("#display").append("Thats correct! You guessed "+guess+" in "+count+" tries! <br><br>");
+				$("#input").val("");
+				$("#display").append("Press F5 to play again!");
+			}
+			else if(guess>answer){
+
+				$("#display").append(guess+" was too high! Try Again! <br><br>");
+				$("#input").val("");
+				$("#input").focus();
+			}
+			else{
+				
+				$("#display").append(guess+" was too low! Try Again!<br><br>");
+				$("#input").val("");
+				$("#input").focus();
+			}
+
+		}
+		else{
+			alert("You can only enter in whole numbers between 1 and 100. You entered: "+guess);
+			$("#input").val("");
+			$("#input").focus();
+		}
+
+	});
+
+
+});
+
+</script>
+
+
+
+
+
+<br>
+<div class="backtohome">
+<button><a href="index.html">Return to Homepage</a></button>
+</div>
+<br>
+<br>
+<br>
+
+Your Guess: <input type="text" name="guess" id="input" autofocus>
+
+<input type="button" id="submit" value="Enter Guess">
+
+
+<div class="display" id="display">
+
+</div>
+</body>
+</html>

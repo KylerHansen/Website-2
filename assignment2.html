@@ -1,0 +1,93 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>County Map</title>
+<style>
+
+a{
+text-decoration:none;
+color:#50B223;
+
+}
+
+a:hover{
+color:yellow;
+}
+
+a:active{
+color:red;
+}
+
+img{
+float: left;
+}
+
+
+table{
+float: left;
+border-collapse: collapse;
+border:2px solid black;
+text-align:center;
+}
+
+
+th{
+color:#B4FF93;
+background-color:#50B223;
+border:2px solid black;
+
+}
+
+td{
+color:#50B223;
+background-color:#B4FF93;
+border:2px solid black;
+margin:0px;
+padding:5px;
+
+
+
+
+</style>
+</head>
+
+
+<body>
+
+<h1> County Map </h1>
+<p>
+I tried using all the different mapping techniques for the map.</p>
+<p> I used the rectangle for Piute County and Beaver County,
+ the Circle for Salt Lake and Tooele, and then the polygon for San Juan County.
+</p>
+<p></p>
+<p></p>
+
+<img src = "images/countymap.gif" alt="county map" usemap="#countymap"/>
+
+<map name = "countymap">
+<a href="https://en.wikipedia.org/wiki/Piute_County,_Utah" title="Piute County"><area shape ="rect" coords="193,530,260,583" alt="Piute County"/></a><!-- Rectangle Coordinates:(top left corner) x,y, x+width, y+height (bottom right corner)--> 
+<a href="https://en.wikipedia.org/wiki/Salt_Lake_County,_Utah" title="Salt Lake County"><area shape = "circle" coords="250,210,39" alt="Salt Lake County"/></a><!--Cirlce Coordinates: x,y,radius (center x,y coordinates)-->
+<a href ="https://en.wikipedia.org/wiki/San_Juan_County,_Utah" title="San Juan County"><area shape = "poly" coords= "472,533,470,550,483,574,427,630,319,748,580,749,581,533" alt="San Juan County"/></a><!-- Poly Coordinates: x1,y1,x2,y2,x3,y3,...xn,yn-->
+<a href="https://en.wikipedia.org/wiki/Tooele_County,_Utah" title="Tooele County"><area shape = "circle" coords="105,243,27" alt="Tooele"/></a>
+<a href="https://en.wikipedia.org/wiki/Beaver_County,_Utah"title="Beaver County"><area shape ="rect" coords="8,522,184,582" alt="Beaver County"/></a>
+</map>
+
+<table>
+<tr><th>County</th><th>Population</th><th>Land Area</th></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Piute_County,_Utah">Piute County</a></td><td>1,556</td><td>758 sq mi</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Salt_Lake_County,_Utah">Salt Lake County</a></td><td>1,029,665</td><td>742 sq mi</td></tr>
+<tr><td><a href ="https://en.wikipedia.org/wiki/San_Juan_County,_Utah">San Juan County</a></td><td>14,746</td><td>7,820 sq mi</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Tooele_County,_Utah">Tooele</a></td><td>58,218</td><td>6,941 sq mi</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Beaver_County,_Utah">Beaver County</a></td><td>6,629</td><td>2,590 sq mi</td></tr>
+</table>
+
+
+
+
+
+
+</body> 
+</html>

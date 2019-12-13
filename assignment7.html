@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+background-color:purple;
+font-family:Arial;
+font-weight:bold;
+font-size:20px;
+}
+
+p{
+color:white;
+font-weight:normal;
+}
+
+.wrong{
+background-color: white;
+border: 2px solid black;
+width:400px;
+height:30px;
+text-align:center;
+padding-top:3px;
+}
+
+.right{
+background-color: black;
+color:white;
+border: 2px solid white;
+width:600px;
+height:30px;
+text-align:center;
+padding-top:3px;
+
+}
+
+.backtohome button{
+
+border:3px solid black;
+padding:10px;
+background-color:white;
+
+}
+.backtohome a{
+
+text-decoration:none;
+font-weight:bold;
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="backtohome">
+<button><a href="index.html">Return to Homepage</a></button>
+</div>
+<br>
+<br>
+
+
+<script defer>
+
+var answer = Math.floor((Math.random()*100)+1);
+window.alert("The Random Number is: " + answer);
+
+var guess = window.prompt("Enter in a number between 1 and 100:");
+
+
+var count = 0;
+
+while(true)
+{
+	if (guess == answer)
+	{
+		count+=1;
+		
+		document.write("<div class='right'> You guessed the number " + guess + " in "+ count + " tries. </div>");
+		break;
+	}
+	else if(guess>answer)
+	{
+		guess= window.prompt("Try Lower");
+		count+=1;
+		document.write("<div class='wrong'> You guessed " + guess +"</div><br>");
+	}
+	else if(guess<answer)
+	{
+		guess= window.prompt("Try Higher");
+		count+=1;
+		document.write("<div class='wrong'>You guessed " + guess + "</div><br>");
+	}
+
+}
+
+
+</script>
+
+<p>
+Press F5 to play again
+</p>
+</body>
+</html>

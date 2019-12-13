@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	<title>Kyler's CS2350 Website</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles/homepage.css"/>
+	
+	</head>
+	<body>
+	<script>
+	window.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("navbarButtonShow").classList.add("Hide");	
+		});
+	
+	var x = 0;
+	
+	function ToggleHide(){
+	
+	if(x == 0){
+		document.getElementById("CollapseHere").classList.remove("Show");
+		document.getElementById("CollapseHere").classList.add("Hide");
+		document.getElementById("navbarButtonShow").classList.remove("Hide");
+		document.getElementById("navbarButtonShow").classList.add("Show");
+		x=1;
+	}else if(x == 1){
+		document.getElementById("CollapseHere").classList.remove("Hide");
+		document.getElementById("CollapseHere").classList.add("Show");
+		document.getElementById("navbarButtonShow").classList.remove("Show");
+		document.getElementById("navbarButtonShow").classList.add("Hide");
+		x=0;
+	}
+}
+	
+	</script>
+
+		<header>
+			<h1>Kyler Hansen CS2350 Website</h1>
+		</header>
+
+		<div class="navbar">
+			<ul>
+				
+				<button id="navbarButtonShow"onClick="ToggleHide()">Show</button>
+				<div id="CollapseHere">
+				<button id="navbarButtonHide" onClick="ToggleHide()">Hide</button>
+				<li><a href="assignment1.html">Assignment 1</a></li>
+				<li><a href="assignment2.html">Assignment 2</a></li>
+				<li><a href="assignment3.html">Assignment 3</a></li>
+				<li><a href="assignment4.html">Assignment 4</a></li>
+				<li><a href="assignment5.html">Assignment 5</a></li>
+				<li><a href="assignment6.php">Assignment 6</a></li>
+				<li><a href="assignment3.html">Assignment 7</a></li>
+				<li><a href="assignment8.html">Assignment 8</a></li>
+				<li><a href="assignment9.html">Assignment 9</a></li>
+				<li><a href="assignment3.html">Assignment 10</a></li>
+				<li><a href="assignment3.html">Assignment 11</a></li>
+				</div>
+			</ul>
+		</div>
+		
+		<div class="maincontent">
+		<h1>Welcome</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C8PyAGej0B4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		
+		<footer>
+			<ul>
+				<li><a href="https://www.weber.edu/" target="_blank">Weber State University</a></li>
+				<li><a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML</a></li>
+				<li><a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS</a></li>
+				<li><a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a></li>
+				<li><a href="http://www.grsites.com/archive/textures/" target="_blank">Textures</a></li>
+			</ul>
+		</footer>
+
+	</body>
+</html>

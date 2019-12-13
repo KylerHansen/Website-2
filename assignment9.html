@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Assignment 9</title>
+<style>
+
+form{
+
+width:30%;
+display: block;
+border : 10px solid black;
+padding:20px;
+position:absolute;
+left:200px;
+top:50px;
+background-color:white;
+
+}
+
+.CreditCard td{
+padding-bottom:20px;
+}
+
+
+body{
+background-color:purple;
+font-size:20px;
+}
+
+input,select{
+font-size:15px;
+}
+
+
+.backtohome button{
+border:3px solid black;
+padding:10px;
+background-color:white;
+}
+.backtohome a{
+text-decoration:none;
+font-weight:bold;
+}
+
+.BillCustomer{
+display:none;
+}
+
+.ErrorReport{
+font-size:15px;
+font-family:arial;
+font-style:italic;
+color:red;
+display:none;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<script>
+
+
+
+		
+
+
+function toggleShow(){
+
+var Credit_Card = document.getElementById("credit_card_RadioID");
+var div_Credit_Card = document.getElementById("divCreditCard");
+
+var Bill_Customer = document.getElementById("bill_customer_RadioID");
+var div_Bill_Customer = document.getElementById("divBillCustomer");
+
+
+	if(Credit_Card.checked){
+		
+		div_Bill_Customer.style.display = "none";
+		div_Credit_Card.style.display = "block";
+		
+	}else if(Bill_Customer.checked){
+		
+		div_Credit_Card.style.display = "none";
+		div_Bill_Customer.style.display = "block";
+	}
+}
+
+
+function validateForum(){
+	var Credit_Card = document.getElementById("credit_card_RadioID");
+	var div_Credit_Card = document.getElementById("divCreditCard");
+
+	var Bill_Customer = document.getElementById("bill_customer_RadioID");
+	var div_Bill_Customer = document.getElementById("divBillCustomer");
+	
+	var pattern = /[0-9]{9,}/g
+
+	if(Credit_Card.checked){
+		
+		
+			
+			if(document.getElementById("checkbox_id").checked==false){
+						resetErrors();
+						//window.alert("Error: Invalid Entry");
+						document.getElementById("Error_Checkbox").style.display="block";
+						
+						return false;
+						
+					}else if(document.getElementById("credit_card_TypeID").value=="null"){
+						resetErrors();
+						//window.alert("Error: Invalid Entry");
+						document.getElementById("Error_CreditCardType").style.display="block";
+						document.getElementById("credit_card_TypeID").focus();
+						return false;
+						
+					}else if(document.getElementById("exp_year_ID").value<19){
+						resetErrors();
+						//window.alert("Error: Invalid Entry");
+						document.getElementById("Error_ExpirationDate").style.display="block";
+						document.getElementById("exp_year_ID").focus();
+						return false;
+					}else if(document.getElementById("exp_year_ID").value == 19 && document.getElementById("exp_month_ID").value !== "Nov" && document.getElementById("exp_month_ID").value !== "Dec"){
+						resetErrors();
+						//window.alert("Error: Invalid Entry");
+						document.getElementById("Error_ExpirationDate").style.display="block";
+						document.getElementById("exp_month_ID").focus();
+						return false;
+						
+					}else if(document.getElementById("credit_card_NumberID").value.match(pattern)){
+						resetErrors();
+						return true;
+					}else{
+						resetErrors();
+						//window.alert("Error: Invalid Entry");
+						document.getElementById("Error_CreditNumber").style.display="block";
+						document.getElementById("credit_card_NumberID").value= "";
+						document.getElementById("credit_card_NumberID").focus();
+						return false;
+						
+					}
+					
+		
+		
+	}else if(Bill_Customer.checked){
+		
+			
+			if(document.getElementById("checkbox_id").checked==false){
+				resetErrors();
+				//window.alert("Error: Invalid Entry");
+				document.getElementById("Error_Checkbox").style.display="block";
+				return false;
+			
+			}else if(document.getElementById("name_id").value == ""){
+				resetErrors();
+				//window.alert("Error: Invalid Entry");
+				document.getElementById("Error_Name").style.display="block";
+				document.getElementById("name_id").focus();
+				return false;
+				
+			}else if(document.getElementById("address_id").value==""){
+				resetErrors();
+				//window.alert("Error: Invalid Entry");
+				document.getElementById("Error_Address").style.display="block";
+				document.getElementById("address_id").focus();
+				return false;
+			}else{
+				resetErrors();
+				return true;
+			}
+			
+	}
+
+	function resetErrors(){
+	var x = document.getElementsByClassName("ErrorReport");
+	var i;
+		for(i=0; i<x.length; i++){
+
+			x[i].style.display = "none";
+		}
+
+	}
+ 
+
+
+}
+
+
+</script>
+
+
+
+
+<form autocomplete="on" onsubmit= "return validateForum()" action = "phpFor9.php" method="post">
+
+<fieldset>
+<legend>Card Ownership</legend>
+
+<input type="radio" name="cc_owner" value="personal" id="credit_card_RadioID" onclick="toggleShow()" checked> Credit Card 
+<input type = "radio" name="cc_owner" value="business" id="bill_customer_RadioID" onclick="toggleShow()"> Bill Customer<br>
+
+</fieldset>
+<br>
+<div class="ErrorReport" id="Error_Checkbox">* Note: You must agree by checking the box to contine. *</div>
+<input type="checkbox" name="auth" id="checkbox_id"> Check to agree that you understand this is non-refundable.
+<br>
+<br>
+
+
+
+<div class="CreditCard" id="divCreditCard">
+<table>
+
+<tr><td colspan='2'><div class="ErrorReport" id="Error_CreditCardType">* Please Select a Valid Card *</div></td></tr>
+
+
+<tr><td>Credit card type: </td>
+<td> <select name="cc_type" id="credit_card_TypeID">
+<option value="null">Select a Card</option>
+<option value="Visa">Visa</option>
+<option value="Mastercard">Mastercard</option>
+<option value="Discover">Discover</option>
+<option value="American Express">American Express</option>
+<option value="Capital One">Capital One</option>
+</select> </td></tr>
+
+<tr><td colspan='2'><div class="ErrorReport" id="Error_CreditNumber">* Please Enter a Valid Card Number *</div></td></tr>
+
+<tr><td>Card  number:</td><td><input type="text" name= "cc_no" id="credit_card_NumberID"></td></tr>
+
+<tr><td colspan='2'><div class="ErrorReport" id="Error_ExpirationDate">* Note: Expiration Date is Expired *</div></td></tr>
+
+<tr><td>Expiration date:</td>
+<td><select name="exp_month" id="exp_month_ID">
+
+<option value="Jan">January</option>
+<option value="Feb">Feburary</option>
+<option value="Mar">March</option>
+<option value="Apr">April</option>
+<option value="May">May</option>
+<option value="Jun">June</option>
+<option value="Jul">July</option>
+<option value="Aug">August</option>
+<option value="Sep">Septermber</option>
+<option value="Oct">October</option>
+<option value="Nov">November</option>
+<option value="Dec">December</option>
+
+</select>
+
+<select name="exp_year" id="exp_year_ID">
+<option value="15">2015</option>
+<option value="16">2016</option>
+<option value="17">2017</option>
+<option value="18">2018</option>
+<option value="19">2019</option>
+<option value="20">2020</option>
+<option value="21">2021</option>
+<option value="22">2022</option>
+<option value="23">2023</option>
+<option value="24">2024</option>
+<option value="25">2025</option>
+<option value="26">2026</option>
+<option value="27">2027</option>
+<option value="28">2028</option>
+<option value="29">2029</option>
+<option value="30">2030</option>
+</select>
+
+ </td></tr>
+
+</table>
+<br>
+<br>
+</div>
+<div class="BillCustomer" id="divBillCustomer">
+
+<table>
+<tr><td></td><td colspan='2'><div class="ErrorReport" id="Error_Name">* Please Enter Your Name *</div></td></tr>
+<tr><td>Name:</td><td><input type="text" name= "name" id="name_id"> </td></tr>
+
+<tr><td>Full Address: </td><td><div class="ErrorReport" id="Error_Address">* Please Enter Your Address *</div></td></tr>
+<tr><td></td><td><textarea name="address" id="address_id" rows="4" cols="20" ></textarea></td></tr>
+</table>
+ 
+<br><br>
+
+
+<br><br>
+
+
+</div>
+
+<button type="submit" >Submit</button>
+<button type="reset">Reset</button>
+
+</form>
+
+
+
+
+
+<div class="backtohome">
+<button><a href="index.html">Return to Homepage</a></button>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>

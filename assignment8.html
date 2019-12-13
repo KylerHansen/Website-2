@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 8</title>
+<style>
+body{
+background-color:purple;
+font-family:Arial;
+font-weight:bold;
+font-size:20px;
+}
+
+.backtohome button{
+
+border:3px solid black;
+padding:10px;
+background-color:white;
+
+}
+.backtohome a{
+
+text-decoration:none;
+font-weight:bold;
+
+}
+
+.display{ 
+background-color:white;
+width:500px;
+height:auto;
+position:absolute;
+top:220px;
+} 
+
+
+
+</style>
+</head>
+<body>
+<script>
+
+var answer = Math.floor((Math.random()*100)+1);
+window.alert("The Random Number is: " + answer);
+
+var count=0;
+
+
+function guesschecker (){
+var guess = document.getElementById("input");
+
+
+var pattern = /^[1-9][0-9]?$|^100$/g
+
+
+if(guess.value.match(pattern)){
+
+count++;
+
+	if (guess.value == answer){
+	
+		document.getElementById("display").innerHTML += ("Thats correct! You guessed "+guess.value+" in "+count+" tries! <br><br>");
+		guess.value=("");
+		document.getElementById("display").innerHTML += "Press F5 to play again!";
+	}
+	else if(guess.value>answer){
+
+		document.getElementById("display").innerHTML += (guess.value+" was too high! Try Again! <br><br>");
+		guess.value=("");
+		guess.focus();
+	}
+	else{
+		
+		document.getElementById("display").innerHTML += (guess.value+" was too low! Try Again!<br><br>");
+		guess.value=("");
+		guess.focus();
+	}
+
+}
+else{
+	window.alert("You can only enter in whole numbers between 1 and 100. You entered: "+guess.value);
+	guess.value=("");
+	guess.focus();
+}
+
+
+}
+
+
+
+</script>
+<br>
+<div class="backtohome">
+<button><a href="index.html">Return to Homepage</a></button>
+</div>
+<br>
+<br>
+<br>
+
+Your Guess: <input type="text" name="guess" id="input" autofocus>
+
+<input type="button" value="Enter Guess" onclick="guesschecker()">
+
+
+<div class="display" id="display">
+
+</div>
+</body>
+</html>
